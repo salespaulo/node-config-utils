@@ -1,0 +1,49 @@
+{
+    "name": "config-utils",
+    "version": "0.0.1",
+    "description": "Node.js Config Utilities - Pre-Config Utilities using nodejs, configjs",
+    "main": "index.js",
+    "scripts": {
+        "compile": "grunt compile",
+        "test": "grunt test",
+        "dev": "grunt dev",
+        "prod": "grunt prod",
+        "deploy": "grunt deploy"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/salespaulo/node-config-utils.git"
+    },
+    "keywords": [
+        "node",
+        "nodejs",
+        "utils",
+        "utilities"
+    ],
+    "author": "Paulo R. A. Sales",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/salespaulo/node-config-utils/issues"
+    },
+    "homepage": "https://github.com/salespaulo/node-config-utils#readme",
+    "devDependencies": {
+        "path": "*",
+        "chai": "*",
+        "chai-http": "*",
+        "mocha": "*",
+        "nodemon": "*",
+        "standard": "*",
+        "load-grunt-tasks": "*",
+        "grunt": "*",
+        "grunt-env": "*",
+        "grunt-shell": "*",
+        "grunt-notify": "*",
+        "grunt-nodemon": "*",
+        "grunt-concurrent": "*",
+        "grunt-mocha-test": "*",
+        "grunt-contrib-clean": "*",
+        "grunt-contrib-copy": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-compress": "*"
+    }
+}
