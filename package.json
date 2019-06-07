@@ -1,5 +1,5 @@
 {
-    "name": "config-utils",
+    "name": "node-config-utils",
     "version": "0.0.1",
     "description": "Node.js Config Utilities - Pre-Config Utilities using nodejs, configjs",
     "main": "index.js",
