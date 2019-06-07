@@ -1,6 +1,6 @@
 {
     "name": "node-config-utils",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Node.js Config Utilities - Pre-Config Utilities using nodejs, configjs",
     "main": "index.js",
     "scripts": {
