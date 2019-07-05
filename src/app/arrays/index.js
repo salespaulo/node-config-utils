@@ -27,7 +27,11 @@ const arrayToBase64 = array => {
     return array == null ? [] : array.map(toBase64)
 }
 
+const chunk = (array, n) =>
+    array.slice(0, ((array.length + n - 1) / n) | 0).map((c, i) => array.slice(n * i, n * i + n))
+
 module.exports = {
+    chunk,
     flatmap,
     asyncFilter,
     arrayToBase64,

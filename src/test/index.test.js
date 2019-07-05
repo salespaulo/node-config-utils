@@ -12,6 +12,15 @@ describe('Testing:', () => {
         chai.assert(true)
         done()
     })
+    it('Testing Arrays chunk OK', done => {
+        try {
+            const d = utils.arrays.chunk([1, 2, 3, 4, 5, 6, 7], 2)
+            console.log('>>>>>>>', d)
+            done()
+        } catch (e) {
+            done(e)
+        }
+    })
     it('Testing new Error() toError OK', done => {
         try {
             const error = new Error(`ERROR Testing toError!`)
