@@ -32,4 +32,44 @@ const toBase64 = json => {
     }
 }
 
-module.exports = { merge, json, inspect, toJson, toBase64 }
+const toError = error => {
+    if (!error) {
+        return { type: 'NULL', message: 'Object Error is Null!' }
+    }
+
+    const eresponse = error.response
+    const erequest = error.request
+
+    if (eresponse) {
+        const status = eresponse.status
+        const data = eresponse.data
+
+        return {
+            status,
+            body: {
+                type: data.erro && data.erro.tipo ? data.erro.tipo : 'bad_request',
+                message: data.erro && data.erro.mensagem ? data.erro.mensagem : data
+            }
+        }
+    }
+
+    if (erequest) {
+        return {
+            status: 500,
+            body: {
+                type: 'internal_server',
+                message: `Not Send / Not Connected`
+            }
+        }
+    }
+
+    return {
+        status: 500,
+        body: {
+            type: 'internal_server',
+            message: error.message || inspect(error)
+        }
+    }
+}
+
+module.exports = { merge, json, inspect, toJson, toBase64, toError }

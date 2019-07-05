@@ -1,6 +1,6 @@
 {
     "name": "node-config-utils",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Node.js Config Utilities - Pre-Config Utilities using nodejs, configjs",
     "main": "index.js",
     "scripts": {
@@ -27,6 +27,7 @@
     },
     "homepage": "https://github.com/salespaulo/node-config-utils#readme",
     "devDependencies": {
+        "axios": "*",
         "path": "*",
         "chai": "*",
         "chai-http": "*",
