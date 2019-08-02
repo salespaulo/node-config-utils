@@ -32,7 +32,7 @@ const toBase64 = json => {
     }
 }
 
-const toError = error => {
+const toError = (error, flog = log => console.error(log)) => {
     if (!error) {
         return { type: 'NULL', message: 'Object Error is Null!' }
     }
@@ -44,6 +44,8 @@ const toError = error => {
         const status = eresponse.status
         const data = eresponse.data
 
+        flog(`[ERROR]: Status: ${status}; Data: ${inspect(data)}`)
+
         return {
             status,
             body: {
@@ -54,14 +56,18 @@ const toError = error => {
     }
 
     if (erequest) {
+        flog(`[ERROR] Not Respond: Not Connected!`)
+
         return {
             status: 500,
             body: {
                 type: 'internal_server',
-                message: `Not Send / Not Connected`
+                message: 'Not Respond: Not Connected!'
             }
         }
     }
+
+    flog(`[Critical Error]: ${inspect(error)}`)
 
     return {
         status: 500,
