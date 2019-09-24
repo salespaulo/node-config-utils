@@ -1,12 +1,15 @@
 'use strict'
 
 const util = require('util')
+const Option = require('option-js')
 
 const merge = (obj, toMerge) => Object.assign(obj, toMerge)
 
 const json = obj => JSON.stringify(obj)
 
 const inspect = obj => util.inspect(obj, false, null)
+
+const option = value => Option.of(value)
 
 const toJson = base64 => {
     if (!base64) return null
@@ -78,4 +81,4 @@ const toError = (error, flog = log => console.error(log)) => {
     }
 }
 
-module.exports = { merge, json, inspect, toJson, toBase64, toError }
+module.exports = { merge, json, inspect, option, toJson, toBase64, toError }
