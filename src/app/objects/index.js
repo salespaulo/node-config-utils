@@ -37,7 +37,7 @@ const toBase64 = json => {
 
 const toError = (error, flog = log => console.error(log)) => {
     if (!error) {
-        return { type: 'NULL', message: 'Object Error is Null!' }
+        return { status: 500, body: { type: 'NULL', message: 'Object Error is Null!' } }
     }
 
     const eresponse = error.response
@@ -46,39 +46,41 @@ const toError = (error, flog = log => console.error(log)) => {
     if (eresponse) {
         const status = eresponse.status
         const data = eresponse.data
-
-        flog(`[ERROR]: Status: ${status}; Data: ${inspect(data)}`)
-
-        return {
+        const result = {
             status,
-            body: {
-                type: data.erro && data.erro.tipo ? data.erro.tipo : 'bad_request',
-                message: data.erro && data.erro.mensagem ? data.erro.mensagem : data
-            }
+            body: inspect(data),
         }
+
+        if (flog) flog(`[ERROR]: Http Response error=${inspect(result)}`)
+
+        return result
     }
 
     if (erequest) {
-        flog(`[ERROR] Not Respond: Not Connected!`)
-
-        return {
+        const result = {
             status: 500,
             body: {
                 type: 'internal_server',
-                message: 'Not Respond: Not Connected!'
-            }
+                message: 'Not Respond: Not Connected!',
+            },
         }
+
+        if (flog) flog(`[ERROR] Http Request error=${inspect(result)}`)
+
+        return result
     }
 
-    flog(`[Critical Error]: ${inspect(error)}`)
-
-    return {
+    const res = {
         status: 500,
         body: {
             type: 'internal_server',
-            message: error.message || inspect(error)
-        }
+            message: error.message || inspect(error).substring(0, 4000),
+        },
     }
+
+    if (flog) flog(`[Critical Error]: ${inspect(res)}`)
+
+    return res
 }
 
 module.exports = { merge, json, inspect, option, toJson, toBase64, toError }

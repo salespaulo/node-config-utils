@@ -1,8 +1,9 @@
 {
     "name": "node-config-utils",
-    "version": "0.0.9",
+    "version": "0.1.0",
     "description": "Node.js Config Utilities - Pre-Config Utilities using nodejs, configjs",
     "main": "index.js",
+    "prettier": "intelligir-prettier-config",
     "scripts": {
         "compile": "grunt compile",
         "test": "grunt test",
@@ -48,6 +49,7 @@
         "grunt-contrib-clean": "*",
         "grunt-contrib-copy": "*",
         "grunt-contrib-watch": "*",
-        "grunt-contrib-compress": "*"
+        "grunt-contrib-compress": "*",
+        "intelligir-prettier-config": "0.0.1"
     }
 }
