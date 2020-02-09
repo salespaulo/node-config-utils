@@ -1,6 +1,6 @@
 {
     "name": "node-config-utils",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Node.js Config Utilities - Pre-Config Utilities using nodejs, configjs",
     "main": "index.js",
     "prettier": "intelligir-prettier-config",
@@ -28,6 +28,7 @@
     },
     "homepage": "https://github.com/salespaulo/node-config-utils#readme",
     "dependencies": {
+        "config": "^3.2.5",
         "option-js": "1.0.0"
     },
     "devDependencies": {
