@@ -1,6 +1,6 @@
 {
     "name": "node-config-utils",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Node.js Config Utilities - Pre-Config Utilities using nodejs, configjs",
     "main": "index.js",
     "prettier": "intelligir-prettier-config",
